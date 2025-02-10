@@ -9,37 +9,36 @@ require_once("dao/CandidatoDAO.php");
 //print_r($con);
 
 do{
-    echo "\n--------------CADASTRO DE CANDIDATO----------------\n";
-    echo "                1 - Cadastrar Candidato PF\n";
-    echo "                2 - Listar Candidato\n";
+    echo "\n==============CADASTRO DE CANDIDATO================\n";
+    echo "                1 - Cadastrar Candidato\n";
+    echo "                2 - Listar Candidatos\n";
     echo "                3 - Buscar Candidato\n";
     echo "                4 - Excluir Candidato\n";
     echo "                0 - Sair";
-    echo "\n-------------------------------------------------\n";
+    echo "\n=================================================\n";
 
     $opcao = readline("Informe a opção: ");
     switch ($opcao) {
 
         case 1:
             
-                $candidato = new Candidato();
-                $candidato->setNome(readline("Informe o nome:"));
-                $candidato->setEmail(readline("Informe o email: "));
-                $candidato->setCpf(readline("Informe o CPF: "));
-                $candidato->setNumero(readline("Informe o número:"));
-                $candidato->setEndereco(readline("Informe o endereço:"));
-                $candidato->setDescricao(readline("Informe uma descrição:"));
+            $candidato = new Candidato();
+            $candidato->setNome(readline("Informe o nome:"));
+            $candidato->setEmail(readline("Informe o email: "));
+            $candidato->setCpf(readline("Informe o CPF: "));
+            $candidato->setNumero(readline("Informe o número:"));
+            $candidato->setEndereco(readline("Informe o endereço:"));
+            $candidato->setDescricao(readline("Informe uma descrição:"));
 
-                $candidatoDAO = new CandidatoDAO;
-                $candidatoDAO->inserirCandidato($candidato);
-                echo "Candidato cadastrado com sucesso!\n\n";
-                break;
+            $candidatoDAO = new CandidatoDAO;
+            $candidatoDAO->inserirCandidato($candidato);
+            echo "Candidato cadastrado com sucesso!\n\n";
+            break;
 
         case 2:
 
             $candidatoDAO = new CandidatoDAO();
             $candidatos = $candidatoDAO->listarCandidatos();
-
             break;
 
         case 3:
@@ -53,7 +52,6 @@ do{
                 echo $candidato;
             else
                 echo "Candidato não encontrado";
-
             break;
 
         case 4:
@@ -67,12 +65,12 @@ do{
 
             $candidato = $candidatoDAO->removerPorId($id);
 
-                echo "\nCandidato exluido com sucesso!";
-
+            echo "\nCandidato exluido com sucesso!";
             break;
             
         case 0:
-            echo "Encerrando Programa...";
+
+            echo "Encerrando Programa..."; 
             break;
         
         default:

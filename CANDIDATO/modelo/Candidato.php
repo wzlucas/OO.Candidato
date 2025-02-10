@@ -13,9 +13,8 @@ abstract class Candidato{
     public abstract function getFase();
 
 
-    public function __toString() {
-        return sprintf("%d- %s | %s | %s\n",
-                        $this->id, $this->getFase(), $this->nome);
+    public function __toString(){
+        return printf(" Candidato {$this->nome} | Fase: {$this->getFase()} | ID:{$this->id}");
     }
         
 
